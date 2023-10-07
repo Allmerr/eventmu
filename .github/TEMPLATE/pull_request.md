@@ -2,8 +2,6 @@
 name: Pull Request [issue_number]
 about: Describe the purpose and changes made in this pull request
 title: ''
-labels: ''
-assignees: ''
 ---
 
 **Describe the purpose of this pull request**
