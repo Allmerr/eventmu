@@ -59,14 +59,15 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn btn-primary">Register</button>
                     </form>
                 </div>
             </div>
             <div class="text-center mt-3">
-                <a href="{{ route('auth.register') }}">Register</a>
+                <a href="{{ route('auth.login') }}">Login</a>
             </div>
         </div>
     </div>
+</div>
 
-@endsection
+    @endsection

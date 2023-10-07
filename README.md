@@ -21,3 +21,13 @@ Those want to make surveillance platform, education class, endorse an event, pri
 3. LMS, Learning Management System make a out of the box full of education in app feature, like homework, authorization, in comming event, etc...
 4. Socialite, make this app on the same level or beyond facebook, craiglist app
 
+## contributing
+We are happy to see your contribution in this project, please read [CONTRIBUTING.md](CONTRIBUTING.md) to know how to run and contribute this project
+
+## license
+
+This project is licensed under the [MIT License](LICENSE)
+
+## contact us
+
+- [Email](mailto:kevinalmer.bisnis@gmail.com)

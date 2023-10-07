@@ -1,5 +1,5 @@
 ---
-name: Pull Request [issue_number]
+name: Pull Request #[issue_number]
 about: Describe the purpose and changes made in this pull request
 title: ''
 ---
