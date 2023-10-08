@@ -13,10 +13,10 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout')-
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/home', function () {
     return view('home.index');
 })->name('home')->middleware('auth');
 
-Route::resource('/server', ServerController::class)->middleware('auth');
+Route::resource('/servers', ServerController::class)->middleware('auth');

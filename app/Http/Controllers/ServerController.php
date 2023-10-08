@@ -13,7 +13,9 @@ class ServerController extends Controller
      */
     public function index()
     {
-        return view('server.index');
+        return view('servers.index',[
+            'servers' => Server::where('is_deleted', '0')->get()
+        ]);
     }
 
     /**
@@ -21,7 +23,7 @@ class ServerController extends Controller
      */
     public function create()
     {
-        return view('server.create');
+        return view('servers.create');
     }
 
     /**
@@ -31,7 +33,7 @@ class ServerController extends Controller
     {
         $rules = [
             'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string',
         ];
 
         $validatedData = $request->validate($rules);
@@ -49,15 +51,22 @@ class ServerController extends Controller
 
         Server::create($validatedData);
 
-        return redirect()->route('server.index')->with('success', 'Server created successfully.');
+        return redirect()->route('servers.index')->with('success', 'Server created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
+    // can i just show server by code server?
     public function show(Server $server)
     {
-        //
+        if($server->is_deleted == 1) {
+            return redirect()->route('servers.index')->with('error', 'Server not found.');
+        }
+
+        return view('servers.show', [
+            'server' => $server
+        ]);
     }
 
     /**
@@ -65,7 +74,9 @@ class ServerController extends Controller
      */
     public function edit(Server $server)
     {
-        //
+        return view('servers.edit', [
+            'server' => $server
+        ]);
     }
 
     /**
@@ -73,7 +84,16 @@ class ServerController extends Controller
      */
     public function update(Request $request, Server $server)
     {
-        //
+        $rules = [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        $server->update($validatedData);
+
+        return redirect()->route('servers.index')->with('success', 'Server updated successfully.');
     }
 
     /**
@@ -81,6 +101,10 @@ class ServerController extends Controller
      */
     public function destroy(Server $server)
     {
-        //
+        $server->update([
+            'is_deleted' => 1
+        ]);
+
+        return redirect()->route('servers.index')->with('success', 'Server deleted successfully.');
     }
 }
