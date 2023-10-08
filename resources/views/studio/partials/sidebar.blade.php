@@ -2,15 +2,15 @@
     <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
+                <a class="nav-link {{ Request::is('studio') ? 'active' : '' }}" aria-current="page" href="{{ route('studio.index') }}">
                 <span data-feather="home" class="align-text-bottom"></span>
-                Dashboard
+                Studio
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/blog*') ? 'active' : '' }}" href="/dashboard/blog">
+                <a class="nav-link {{ Request::is('studio/servers*') ? 'active' : '' }}" href="{{ route('studio.servers.index') }}">
                 <span data-feather="file-text" class="align-text-bottom"></span>
-                My Blogs
+                My Server
                 </a>
             </li>
         </ul>

@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $server->name }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">#{{ $server->code }}</h6>
-                        <p class="card-text">{{ Str::limit($server->description, 30) }}</p>
+                        <p class="card-text">{{ Str::limit($server->description, 50) }}</p>
                         <a class="btn btn-primary" href="#">Follow</a>
                         <a class="btn btn-primary" href="{{ route('servers.show', $server->code) }}">Detail</a>
                     </div>
