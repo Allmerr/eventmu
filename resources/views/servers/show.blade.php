@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('body')
+@section('content')
 
 <div class="container-fluid">
     <div class="card mb-3">

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('body')
+@section('content')
 <div class="container-fluid mt-2">
     <a class="btn btn-primary" href="{{ route('servers.create') }}">Create server</a>
     <br>

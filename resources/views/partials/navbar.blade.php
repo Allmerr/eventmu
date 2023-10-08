@@ -6,12 +6,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('studio.index') }}">Studio</a>
+                </li>
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('auth.login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('auth.login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('auth.register') }}">Register</a>
+                    <a class="nav-link" href="{{ route('auth.register') }}">Register</a>
                 </li>
                 @endguest
                 @auth

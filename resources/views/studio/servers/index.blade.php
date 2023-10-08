@@ -1,5 +1,5 @@
 @extends('studio.layouts.main')
-@section('body')
+@section('content')
 
     <div class="container-fluid">
         welcome to studio
