@@ -46,4 +46,12 @@ class User extends Authenticatable
     public function servers(){
         return $this->hasMany(Server::class);
     }
+
+    public function IsMyOwnServer($serverId){
+        return $this->servers()->where('id', $serverId)->exists();
+    }
+
+    public function hasFollowed($serverId){
+        return $this->servers()->where('id', $serverId)->exists();
+    }
 }

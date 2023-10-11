@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\Studio\ServerController as StudioServerController;
 use App\Http\Controllers\Studio\StudioController;
+use App\Http\Controllers\FollowerController;
 
 // welcome route
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::get('/home', function () {
 })->name('home')->middleware('auth');
 
 // server routes
+Route::get('/servers/{server}/follow', [FollowerController::class, 'follow'])->name('servers.follow');
 Route::resource('/servers', ServerController::class)->middleware('auth');
 
 // studio routes

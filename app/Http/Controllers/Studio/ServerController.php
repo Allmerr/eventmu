@@ -31,7 +31,7 @@ class ServerController extends Controller
         // string and number random
         $code = Str::random(5);
 
-        while (Server::where('code', $code)->where('id_deleted', '0')->exists()) {
+        while (Server::where('code', $code)->where('is_deleted', '0')->exists()) {
             $code = Str::random(5);
         }
 
