@@ -14,6 +14,7 @@ class Server extends Model
         'description',
         'code',
         'user_id',
+        'is_deleted',
     ];
 
     public function getRouteKeyName()
