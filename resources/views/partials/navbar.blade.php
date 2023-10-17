@@ -8,10 +8,10 @@
             <ul class="navbar-nav ms-auto">
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('auth.login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('auth.register') }}">Register</a>
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
                 </li>
                 @endguest
                 @auth
@@ -19,7 +19,7 @@
                     <a class="nav-link" href="{{ route('studio.index') }}">Studio</a>
                 </li>
                 <li class="nav-item">
-                    <form action="{{ route('auth.logout') }}" method="post">
+                    <form action="{{ route('logout') }}" method="post">
                         @csrf
                         <button class="nav-link" type="submit">Logout</button>
                     </form>
