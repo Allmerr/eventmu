@@ -21,7 +21,7 @@ class ServerFactory extends Factory
         $userId = User::pluck('id')->all();
 
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->sentence(2),
             'description' => $this->faker->text,
             'user_id' => $this->faker->randomElement($userId),
         ];

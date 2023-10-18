@@ -29,10 +29,10 @@ class ServerController extends Controller
 
 
         // string and number random
-        $code = Str::random(5);
+        $code = Str::upper(Str::random(5));
 
         while (Server::where('code', $code)->where('is_deleted', '0')->exists()) {
-            $code = Str::random(5);
+            $code = Str::upper(Str::random(5));
         }
 
         $validatedData['user_id'] = auth()->user()->id;

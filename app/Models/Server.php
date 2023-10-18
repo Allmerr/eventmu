@@ -41,10 +41,10 @@ class Server extends Model
     // Generate a unique code for the server
     private function generateUniqueCode()
     {
-        $code = Str::random(5);
+        $code = Str::upper(Str::random(5));
 
         while (Server::where('code', $code)->exists()) {
-            $code = Str::random(5);
+            $code = Str::upper(Str::random(5));
         }
 
         return $code;
