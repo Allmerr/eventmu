@@ -2,7 +2,7 @@
 
 ## about EventMu
 
-**EventMu** is a next level content management system for improvement in productivity through out of the box and attractive feature
+**EventMu** is a next level content management system for improvement in live through out of the box and attractive feature
 
 ## main \**dream* feature
 
@@ -20,6 +20,9 @@ Those want to make surveillance platform, education class, endorse an event, pri
 2. server, like a private or public page for you
 3. LMS, Learning Management System make a out of the box full of education in app feature, like homework, authorization, in comming event, etc...
 4. Socialite, make this app on the same level or beyond facebook, craiglist app
+
+## todo list
+See our [todo list](todo-list.md)
 
 ## contributing
 We are happy to see your contribution in this project, please read [CONTRIBUTING.md](CONTRIBUTING.md) to know how to run and contribute this project
