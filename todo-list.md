@@ -13,6 +13,7 @@
 | Post | like and comment | | |  |
 | | Setting post | can repost, etc | | |
 | Moderator | Accept report | Banned or suspend server | | |
+| | Make post | Post is not for server | | |
 | User | Message | | | |
 
 
