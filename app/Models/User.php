@@ -52,6 +52,6 @@ class User extends Authenticatable
     }
 
     public function hasFollowed($serverId){
-        return $this->servers()->where('id', $serverId)->exists();
+        return Follower::where('server_id', $serverId)->where('user_id', $this->id)->where('is_deleted', '0')->exists();
     }
 }

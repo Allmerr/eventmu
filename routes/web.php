@@ -19,6 +19,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // server routes
 Route::get('/servers/{server}/follow', [FollowerController::class, 'follow'])->name('servers.follow');
+Route::get('/servers/{server}/unfollow', [FollowerController::class, 'unfollow'])->name('servers.unfollow');
 Route::resource('/servers', ServerController::class)->middleware('auth');
 
 // studio routes

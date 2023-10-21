@@ -19,6 +19,10 @@ class FollowerController extends Controller
             return redirect()->route('servers.index')->with('error', 'Server not found.');
         }
 
+        if(Follower::where('server_id', $server->id)->where('user_id', auth()->user()->id)->where('is_deleted', '0')->exists()){
+            return redirect()->route('servers.index')->with('error', 'You cannot follow again this server.');
+        }
+
         $validatedData = [
             'server_id' => $server->id,
             'user_id' => auth()->user()->id,
@@ -27,5 +31,18 @@ class FollowerController extends Controller
         Follower::create($validatedData);
 
         return redirect()->route('servers.index')->with('success', 'Followed successfully.');
+    }
+
+    public function unfollow(Request $request, Server $server){
+        if(!Follower::where('server_id', $server->id)->where('user_id', auth()->user()->id)->where('is_deleted', '0')->exists()){
+            return redirect()->route('servers.index')->with('error', 'You cannot unfollow this server.');
+        }
+
+        $follower = Follower::where('server_id', $server->id)->where('user_id', auth()->user()->id)->where('is_deleted', '0')->first();
+
+        $follower->is_deleted = '1';
+        $follower->save();
+
+        return redirect()->route('servers.index')->with('success', 'Unfollowed successfully.');
     }
 }

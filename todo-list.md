@@ -15,5 +15,5 @@
 | Moderator | Accept report | Banned or suspend server | | |
 | | Make post | Post is not for server | | |
 | User | Message | | | |
-
+| System | Log activity | | | |
 
