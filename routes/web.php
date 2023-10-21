@@ -27,6 +27,7 @@ Route::get('/studio', [StudioController::class, 'index'])->name('studio.index')-
 
 // studio server routes
 Route::name("studio.")->prefix("studio")->group(function () {
+    Route::get('/servers/{server}/follower', [StudioServerController::class, 'follower'])->name('servers.follower');
     Route::resource('/servers', StudioServerController::class);
 });
 

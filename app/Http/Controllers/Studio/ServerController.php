@@ -76,4 +76,13 @@ class ServerController extends Controller
 
         return redirect()->route('studio.servers.index')->with('success', 'Server deleted successfully.');
     }
+
+    public function follower(Request $request, Server $server){
+        $followers = $server->follower;
+
+        return view('studio.servers.follower', [
+            'server' => $server,
+            'followers' => $followers,
+        ]);
+    }
 }

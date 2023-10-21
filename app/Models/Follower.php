@@ -14,4 +14,8 @@ class Follower extends Model
         'user_id',
         'is_deleted',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

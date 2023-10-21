@@ -29,6 +29,19 @@
                     </div>
                 @enderror
             </div>
+
+            <div class="mb-3">
+                <label for="follower" class="form-label">follower</label>
+                <input type="follower" name="follower" id="follower"
+                 class="form-control @error('follower') is-invalid @enderror"
+                 placeholder="follower" value="{{ count($server->follower) }}" disabled>
+                @error('follower')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+                <a href="{{ route('studio.servers.follower', $server->code) }}"><small>Show follower</small></a>
+            </div>
         </form>
     </div>
 </div>

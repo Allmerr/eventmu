@@ -23,6 +23,10 @@ class Server extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function follower(){
+        return $this->hasMany(Follower::class);
+    }
+
     public function getRouteKeyName()
     {
         return 'code';
