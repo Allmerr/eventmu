@@ -30,6 +30,9 @@
                             <a href="{{ route('studio.servers.show', $server->code) }}" class="btn btn-info btn-xs mx-1">
                                 <i class="fa fa-info"></i>
                             </a>
+                            <a href="{{ route('studio.servers.posts.index', $server->code) }}" class="btn btn-success btn-xs mx-1">
+                                <i class="fas fa-bullhorn"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

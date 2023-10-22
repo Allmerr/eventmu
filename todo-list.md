@@ -12,7 +12,7 @@
 | Post | like and comment | | |  |
 | | Setting post | can repost, etc | | |
 | Moderator | Accept report | Banned or suspend server | | |
-| | Make post | Post is not for server | | |
+| | Make post | Post is not for server (comunity guidelines) | | |
 | User | Message | | | |
 | System | Log activity | | | |
 | | Have feed | Tell the most follow server of the week, server of the week and post of the week | | Low |

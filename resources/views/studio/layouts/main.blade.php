@@ -71,6 +71,8 @@
       }
     </style>
 
+    @stack('css')
+
     <link href="{{ asset('/style/studio.css') }}" rel="stylesheet">
   </head>
   <body>
