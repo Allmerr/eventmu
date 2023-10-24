@@ -57,9 +57,9 @@ class PostController extends Controller
             $validatedData['image'] = $request->file('image')->store('posts_images');
         }
 
-        $post->update($validatedData);
+        Post::create($validatedData);
 
-        return redirect()->route('studio.servers.posts.index', $server->id)->with('success', 'Post created successfully.');
+        return redirect()->route('studio.servers.posts.index', $server->code)->with('success', 'Post created successfully.');
     }
 
     /**

@@ -8,8 +8,7 @@
             <h6 class="card-subtitle mb-2 text-muted">#{{ $server->code }}</h6>
             <h6 class="card-subtitle mb-2 text-muted">{{ $server->created_at }}</h6>
             <p class="card-text">{{ $server->description }}</p>
-            <a class="btn btn-primary" href="#">Follow</a>
-            <a class="btn btn-primary" href="#">Detail</a>
+            <a class="btn btn-primary" href="{{ route('servers.page', $server->code) }}">Page</a>
         </div>
     </div>
 </div>

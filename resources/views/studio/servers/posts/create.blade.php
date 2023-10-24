@@ -26,7 +26,7 @@
             </div>
 
             <div class="mb-3">
-                <img class="img-preview img-fluid mb-3">
+                <img class="img-preview img-fluid mb-3" alt="Preview Image">
                 <label for="image" class="form-label">image</label>
                 <input type="file" name="image" id="image"
                  class="form-control @error('image') is-invalid @enderror"
