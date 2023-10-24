@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div class="container-fluid mt-2">
+<div class="container-fluid page-content">
     <div class="row">
         @if($post->image)
         <img src="{{ asset('storage/' . $post->image) }}" class="" alt="{{ Str::limit($post->caption, 20) }}">

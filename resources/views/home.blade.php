@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid page-content">
 
     welcome back
 

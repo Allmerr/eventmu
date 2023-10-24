@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div class="container-fluid mt-2">
+<div class="container-fluid page-content">
     <a class="btn btn-primary" href="{{ route('servers.create') }}">Create server</a>
     <br>
     <br>

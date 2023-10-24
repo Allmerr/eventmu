@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid page-content">
     <div class="card mb-3">
         <div class="card-body">
             <h5 class="card-title">{{ $server->name }}</h5>

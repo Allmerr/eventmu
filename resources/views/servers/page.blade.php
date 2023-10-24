@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-<div class="container-fluid mt-2">
+<div class="container-fluid page-content">
     <div class="row">
         @foreach ($posts as $post)
             <div class="card" style="width: 18rem;">

@@ -1,7 +1,7 @@
 @extends('name')
 @section('content')
 
-<div class="container">
+<div class="container page-content">
     <div class="row justify-content-center">
         <div class="col-md-8 mt-5">
             <h1 class="text-center">Edit Server</h1>
