@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Server;
 
 class HomeController extends Controller
 {
@@ -23,11 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    public function welcome()
-    {
-        return view('welcome');
+        return view('home', [
+            "servers" => Server::where('is_deleted', '0')->get(),
+        ]);
     }
 }

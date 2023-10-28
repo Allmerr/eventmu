@@ -25,7 +25,7 @@ Route::get('/servers/{server}/page', [ServerController::class, 'page'])->name('s
 Route::get('/servers/{server}/page/{post}/detail', [ServerController::class, 'postDetail'])->name('servers.post_detail');
 Route::get('/servers/{server}/page/{post}/up-votes', [ServerController::class, 'postUpVotes'])->name('servers.post_up_votes');
 Route::get('/servers/{server}/page/{post}/down-votes', [ServerController::class, 'postDownVotes'])->name('servers.post_down_votes');
-Route::resource('/servers', ServerController::class)->middleware('auth');
+Route::resource('/servers', ServerController::class)->only(['index', 'show'])->middleware('auth');
 
 // studio routes
 Route::get('/studio', [StudioController::class, 'index'])->name('studio.index')->middleware('auth');

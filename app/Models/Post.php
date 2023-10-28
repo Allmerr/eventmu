@@ -20,4 +20,17 @@ class Post extends Model
     {
         return $this->belongsTo(Server::class);
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function countVotes()
+    {
+        $upVotes = $this->votes()->where('type', 'up')->where('is_deleted', '0')->count();
+        $downVotes = $this->votes()->where('type', 'down')->where('is_deleted', '0')->count();
+
+        return $upVotes - $downVotes;
+    }
 }

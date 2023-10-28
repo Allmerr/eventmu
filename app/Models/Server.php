@@ -27,6 +27,10 @@ class Server extends Model
         return $this->hasMany(Follower::class);
     }
 
+    public function countFollowers(){
+        return $this->follower()->where('is_deleted', '0')->count();
+    }
+
     public function getRouteKeyName()
     {
         return 'code';

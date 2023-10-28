@@ -132,6 +132,7 @@ class ServerController extends Controller
         return view('servers.post_detail', [
             'server' => $server,
             'post' => $post,
+            'posts' => Post::where('server_id', $server->id)->where('is_deleted', '0')->get(),
         ]);
     }
 
@@ -141,8 +142,8 @@ class ServerController extends Controller
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
-        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'up')->exists()){
-            $vote = Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'up')->get()[0];
+        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'up')->where('is_deleted', '0')->exists()){
+            $vote = Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'up')->where('is_deleted', '0')->get()[0];
 
             $vote->update([
                 'is_deleted' => '1'
@@ -151,7 +152,7 @@ class ServerController extends Controller
             return redirect()->back()->with('success', 'Unvoted successfully.');
         }
 
-        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->exists()){
+        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->where('is_deleted', '0')->exists()){
             $vote = Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down');
 
             $vote->update([
@@ -177,8 +178,8 @@ class ServerController extends Controller
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
-        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->exists()){
-            $vote = Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->get()[0];
+        if(Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->where('is_deleted', '0')->exists()){
+            $vote = Vote::where('user_id', auth()->user()->id)->where('post_id', $post->id)->where('type', 'down')->where('is_deleted', '0')->get()[0];
 
             $vote->update([
                 'is_deleted' => '1'

@@ -31,6 +31,9 @@
                 <ul class="navbar-nav ms-auto">
                     @auth
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('servers.index') }}">Servers</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('studio.index') }}">Studio</a>
                     </li>
                     @endauth
