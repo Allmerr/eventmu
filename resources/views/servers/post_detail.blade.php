@@ -6,11 +6,17 @@
 .latest-post__image{
     width: 80px;
 }
+
+@media(max-width: 768px){
+    .post{
+        gap: 50px;
+    }
+}
 </style>
 @endpush
 
 <div class="container-fluid page-content my-5 pt-5">
-    <div class="row">
+    <div class="row post">
         <div class="col-md-8">
             @if($post->image)
             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ Str::limit($post->caption, 20) }}" class="mx-auto img-thumbnail m-2">
@@ -29,7 +35,7 @@
             <h5>Latest post from this server</h5>
             <div class="latest-posts">
                 @foreach ($posts as $post)
-                <div class="latest-post d-flex align-items-center rounded p-1 justify-content-around border">
+                <div class="latest-post d-flex align-items-center rounded p-1 justify-content-around border mb-2">
                     <img src="{{ asset('storage/' .  $post->image ) }}" alt="{{ Str::limit($post->caption, 20) }}" class="latest-post__image">
                     <h6 class=""><a href="{{ route('servers.post_detail', ['server' => $server->code, 'post' => $post->id]) }}" class="text-decoration-none">{{ Str::limit($post->caption, 35) }}</a></h6>
                 </div>

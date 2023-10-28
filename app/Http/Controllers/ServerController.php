@@ -132,7 +132,7 @@ class ServerController extends Controller
         return view('servers.post_detail', [
             'server' => $server,
             'post' => $post,
-            'posts' => Post::where('server_id', $server->id)->where('is_deleted', '0')->get(),
+            'posts' => Post::where('server_id', $server->id)->where('is_deleted', '0')->orderBy('id', 'DESC')->take(10)->get(),
         ]);
     }
 

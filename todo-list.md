@@ -4,7 +4,7 @@
 | Feature | Sub Feature | Explanation | Done | Urgency |
 | --- | --- | --- | --- | --- |
 | Servers | Follow and Unfollow  | Owner Can't follow his server | ✅| |
-| | Post | | | |
+| | Post | |✅| |
 | | Survey | | | Low |
 | | Server private | Have to send message first to owner for acception for join server| | |
 | | Setting feature | | | |
@@ -34,3 +34,4 @@
 | Remaster or Remake Admin Design |  |  | High |  |
 | Feature Search | Feature Search for all tables (algolia)  |  | Low |  |
 | Create reausable component | Like Card Style  |  |  |  |
+| Documentation | Like what library used, and why used?  |  | High |  |
