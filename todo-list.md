@@ -6,12 +6,13 @@
 | Servers | Follow and Unfollow  | Owner Can't follow his server | ✅| |
 | | Post | |✅| |
 | | Survey | | | Low |
-| | Server private | Have to send message first to owner for acception for join server| | |
-| | Setting feature | | | |
+| | Private Server | Have to send message first to owner for acception for join server| | |
+| | Public Server | Some or all can send message | |  |
 | | Mini server | Mini server contain lms, shop, etc | | Low |
 | | Report Server | Moderators can banned or suspend | |  |
 | | Assistant |  | |  |
 | | Setting Assistant |  | |  |
+| | Setting feature | Owner setting some rules and configuration | | |
 | Forum | Create topic | | | |
 | | Discuse | | | |
 | | Close-Open | Topic can be clossed and Open by creator | | |

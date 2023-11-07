@@ -113,8 +113,10 @@ class ServerController extends Controller
 
     public function page(Request $request, Server $server)
     {
-        if($this->isUserFollowServer($server->id) == false){
-            return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
+        if(!$server->user_id == auth()->user()->id){
+            if($this->isUserFollowServer($server->id) == false){
+                return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
+            }
         }
 
         return view('servers.page', [
@@ -129,8 +131,10 @@ class ServerController extends Controller
             return redirect()->route('servers.show', $server->code)->with('error', 'Post or Server not found.');
         }
 
-        if($this->isUserFollowServer($server->id) == false){
-            return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
+        if(!$server->user_id == auth()->user()->id){
+            if($this->isUserFollowServer($server->id) == false){
+                return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
+            }
         }
 
         return view('servers.post_detail', [

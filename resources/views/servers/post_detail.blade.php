@@ -56,9 +56,16 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="comment__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $comment->user->name }}</b></a> - {{ $comment->created_at->diffForHumans() }}</h6>
                             <div class="d-inline-block rounded p-1 bg-body-tertiary border">
+                                <a href="{{ route('servers.post_up_votes', ['server' => $server->code, 'post' => $post->id]) }}" class="text-secondary text-decoration-none"><i class="fa-solid fa-chevron-up"></i><span class="text-black"> {{ $post->countVotes() }} Upvotes</span></a>
+                                <a href="{{ route('servers.post_down_votes', ['server' => $server->code, 'post' => $post->id]) }}" class="text-secondary"><i class="fa-solid fa-chevron-down"></i></a>
+                                <span>|</span>
+                                @if($comment->user_id == Auth::id())
                                 <a href="{{ route('comment.destroy', $comment->id) }}" class="text-danger" onclick="notificationBeforeDelete(event, this, 1)"><i class="fa-solid fa-trash"></i></a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#editCommentModal{{$comment->id}}" class="text-warning"><i class="fa-solid fa-pen"></i></a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#replyCommentModal{{$comment->id}}" class="text-muted text-decoration-none"> - Reply</a>
+                                @else
+                                <a href="#" class="text-muted text-decoration-none"><i class="fa-regular fa-flag"></i></a>
+                                @endif
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#replyCommentModal{{$comment->id}}" class="text-primary text-decoration-none"><i class="fa-regular fa-comments"></i></a>
                             </div>
                         </div>
                         <p class="comment__content text-end">{{ $comment->content }}</p>
@@ -68,8 +75,12 @@
                         <div class="d-flex justify-content-between">
                             <h6 class="comment-reply__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $reply->user->name }}</b></a> - {{ $reply->created_at->diffForHumans() }}</h6>
                             <div class="d-inline-block rounded p-1 bg-body-tertiary border">
+                                @if($comment->user_id == Auth::id())
                                 <a href="{{ route('comment.destroy', $reply->id) }}" class="text-danger" onclick="notificationBeforeDelete(event, this, 1)"><i class="fa-solid fa-trash"></i></a>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#editCommentModal{{$reply->id}}" class="text-warning"><i class="fa-solid fa-pen"></i></a>
+                                @else
+                                <a href="#" class="text-muted text-decoration-none"><i class="fa-regular fa-flag"></i></a>
+                                @endif
                             </div>
                         </div>
                         <p class="comment-reply__content text-end">{{ $reply->content }}</p>
@@ -139,7 +150,6 @@
     </div>
 </div>
 @foreach ($comment->replies as $reply)
-@endforeach
 <div class="modal fade" id="editCommentModal{{$reply->id}}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -184,6 +194,8 @@
     </div>
 </div>
 @endforeach
+@endforeach
+
 
 @foreach($post->comments as $comment)
 <div class="modal fade" id="replyCommentModal{{$comment->id}}" role="dialog">
