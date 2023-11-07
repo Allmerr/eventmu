@@ -2,7 +2,7 @@
 
 ## about EventMu
 
-**EventMu** is a next level content management system for improvement in live through out of the box and attractive feature
+> **EventMu** is a next level content management system for improvement in live through out of the box and attractive feature
 
 ## main \**dream* feature
 

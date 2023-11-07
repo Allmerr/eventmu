@@ -26,6 +26,11 @@ class Post extends Model
         return $this->hasMany(Vote::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->where('is_deleted', '0');
+    }
+
     public function countVotes()
     {
         $upVotes = $this->votes()->where('type', 'up')->where('is_deleted', '0')->count();

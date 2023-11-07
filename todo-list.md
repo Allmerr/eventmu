@@ -35,3 +35,6 @@
 | Feature Search | Feature Search for all tables (algolia)  |  | Low |  |
 | Create reausable component | Like Card Style  |  |  |  |
 | Documentation | Like what library used, and why used?  |  | High |  |
+| Code coverage | |  | Low |  |
+| User check | Like check validation massage consistent, is_deleted check |  | |  |
+| User have username | for make easy SEO | | High | |

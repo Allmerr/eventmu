@@ -7,6 +7,7 @@ use App\Http\Controllers\Studio\PostController as StudioPostController;
 use App\Http\Controllers\Studio\StudioController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CommentController;
 
 // auth routes
 Auth::routes();
@@ -26,6 +27,7 @@ Route::get('/servers/{server}/page/{post}/detail', [ServerController::class, 'po
 Route::get('/servers/{server}/page/{post}/up-votes', [ServerController::class, 'postUpVotes'])->name('servers.post_up_votes');
 Route::get('/servers/{server}/page/{post}/down-votes', [ServerController::class, 'postDownVotes'])->name('servers.post_down_votes');
 Route::resource('/servers', ServerController::class)->only(['index', 'show'])->middleware('auth');
+Route::resource('/comment', CommentController::class)->only(['store', 'destroy', 'update'])->middleware('auth');
 
 // studio routes
 Route::get('/studio', [StudioController::class, 'index'])->name('studio.index')->middleware('auth');

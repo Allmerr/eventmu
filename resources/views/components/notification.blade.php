@@ -1,13 +1,15 @@
-@if(count($errors))
+@if(count($errors) > 0)
     <script>
     Swal.fire({
-        icon: 'error'
+        icon: 'error',
         title: 'Oops...',
         text: 'Please check your input',
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false
     });
     </script>
 @endif
-
 
 @if(session()->has('error'))
     <script>
@@ -15,6 +17,9 @@
         icon: 'error',
         title: 'Oops...',
         text: '{{ session()->get('error') }}',
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false
     })
     </script>
 @endif
@@ -25,6 +30,9 @@
         icon: 'success',
         title: 'Success',
         text: '{{ session()->get('success') }}',
+        timer: 1000,
+        showCancelButton: false,
+        showConfirmButton: false
     })
 </script>
 @endif

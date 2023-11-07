@@ -113,7 +113,7 @@ class ServerController extends Controller
 
     public function page(Request $request, Server $server)
     {
-        if(!Follower::where('user_id', auth()->user()->id)->where('server_id', $server->id)->where('is_deleted', '0')->exists()){
+        if($this->isUserFollowServer($server->id) == false){
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
@@ -125,7 +125,11 @@ class ServerController extends Controller
 
     public function postDetail(Request $request, Server $server, Post $post)
     {
-        if(!Follower::where('user_id', auth()->user()->id)->where('server_id', $server->id)->where('is_deleted', '0')->exists()){
+        if($this->isPostExist($post->id) == false and $post->is_deleted == 1){
+            return redirect()->route('servers.show', $server->code)->with('error', 'Post or Server not found.');
+        }
+
+        if($this->isUserFollowServer($server->id) == false){
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
@@ -138,7 +142,7 @@ class ServerController extends Controller
 
     public function postUpVotes(Request $request, Server $server, Post $post)
     {
-        if(!Follower::where('user_id', auth()->user()->id)->where('server_id', $server->id)->where('is_deleted', '0')->exists()){
+        if($this->isUserFollowServer($server->id) == false){
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
@@ -174,7 +178,7 @@ class ServerController extends Controller
 
     public function postDownVotes(Request $request, Server $server, Post $post)
     {
-        if(!Follower::where('user_id', auth()->user()->id)->where('server_id', $server->id)->where('is_deleted', '0')->exists()){
+        if($this->isUserFollowServer($server->id) == false){
             return redirect()->route('servers.show', $server->code)->with('error', 'You are not following this server.');
         }
 
@@ -207,4 +211,20 @@ class ServerController extends Controller
         return redirect()->back()->with('success', 'Voted Down successfully.');
 
     }
+
+    private function isServerExist($code)
+    {
+        return Server::where('code', $code)->where('is_deleted', '0')->exists();
+    }
+
+    private function isPostExist($post_id)
+    {
+        return Post::where('id', $post_id)->where('is_deleted', '0')->exists();
+    }
+
+    private function isUserFollowServer($server_id)
+    {
+        return Follower::where('user_id', auth()->user()->id)->where('server_id', $server_id)->where('is_deleted', '0')->exists();
+    }
+
 }
