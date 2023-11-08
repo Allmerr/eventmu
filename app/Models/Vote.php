@@ -11,8 +11,10 @@ class Vote extends Model
 
     protected $fillable = [
         'type',
+        'value',
         'user_id',
         'post_id',
+        'comment_id',
         'is_deleted',
     ];
 }

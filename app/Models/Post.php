@@ -33,8 +33,8 @@ class Post extends Model
 
     public function countVotes()
     {
-        $upVotes = $this->votes()->where('type', 'up')->where('is_deleted', '0')->count();
-        $downVotes = $this->votes()->where('type', 'down')->where('is_deleted', '0')->count();
+        $upVotes = $this->votes()->where('value', 'up')->where('is_deleted', '0')->count();
+        $downVotes = $this->votes()->where('value', 'down')->where('is_deleted', '0')->count();
 
         return $upVotes - $downVotes;
     }

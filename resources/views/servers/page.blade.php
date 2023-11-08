@@ -26,9 +26,21 @@
             <div class="card-body">
                 <p class="card-text">{{ $post->caption }}</p>
 
-                <div class="d-inline-block rounded p-1 bg-body-tertiary border">
-                    <a href="{{ route('servers.post_up_votes', ['server' => $server->code, 'post' => $post->id]) }}" class="text-secondary text-decoration-none"><i class="fa-solid fa-chevron-up"></i><span class="text-black"> {{ $post->countVotes() }} Upvotes</span></a>
-                    <a href="{{ route('servers.post_down_votes', ['server' => $server->code, 'post' => $post->id]) }}" class="text-secondary"><i class="fa-solid fa-chevron-down"></i></a>
+                <div class="d-inline-block rounded p-0 bg-body-tertiary border">
+                    <form action="{{ route('vote.store') }}" method="post" class="d-inline">
+                        @csrf
+                        <input type="hidden" name="type" value="post">
+                        <input type="hidden" name="value" value="up">
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <button type="submit" class="btn text-secondary text-decoration-none"><i class="fa-solid fa-chevron-up"></i><span class="text-black"> {{ $post->countVotes() }} Upvotes</span></button>
+                    </form>
+                    <form action="{{ route('vote.store') }}" method="post" class="d-inline">
+                        @csrf
+                        <input type="hidden" name="type" value="post">
+                        <input type="hidden" name="value" value="down">
+                        <input type="hidden" name="post_id" value="{{ $post->id }}">
+                        <button type="submit" class="btn text-secondary text-decoration-none"   ><i class="fa-solid fa-chevron-down"></i></button>
+                    </form>
                 </div>
                 <a href="{{ route('servers.post_detail', ['server' => $server->code, 'post' => $post->id]) }}" class="d-inline-block rounded p-1 bg-body-tertiary border text-decoration-none">Detail</a>
             </div>

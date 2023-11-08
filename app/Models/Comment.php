@@ -25,4 +25,17 @@ class Comment extends Model
     public function replies(){
         return $this->hasMany(Comment::class, 'comment_id')->where('is_deleted', '0');
     }
+
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+
+    public function countVotes()
+    {
+        $upVotes = $this->votes()->where('value', 'up')->where('is_deleted', '0')->count();
+        $downVotes = $this->votes()->where('value', 'down')->where('is_deleted', '0')->count();
+
+        return $upVotes - $downVotes;
+    }
 }

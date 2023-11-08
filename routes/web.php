@@ -8,6 +8,7 @@ use App\Http\Controllers\Studio\StudioController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\VoteController;
 
 // auth routes
 Auth::routes();
@@ -28,6 +29,7 @@ Route::get('/servers/{server}/page/{post}/up-votes', [ServerController::class, '
 Route::get('/servers/{server}/page/{post}/down-votes', [ServerController::class, 'postDownVotes'])->name('servers.post_down_votes');
 Route::resource('/servers', ServerController::class)->only(['index', 'show'])->middleware('auth');
 Route::resource('/comment', CommentController::class)->only(['store', 'destroy', 'update'])->middleware('auth');
+Route::resource('/vote', VoteController::class)->only(['store'])->middleware('auth');
 
 // studio routes
 Route::get('/studio', [StudioController::class, 'index'])->name('studio.index')->middleware('auth');
