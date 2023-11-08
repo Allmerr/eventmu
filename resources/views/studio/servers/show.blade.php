@@ -40,7 +40,6 @@
                         {{ $message }}
                     </div>
                 @enderror
-                <a href="{{ route('studio.servers.follower', $server->code) }}"><small>Show follower</small></a>
             </div>
         </form>
     </div>

@@ -25,8 +25,6 @@ Route::get('/servers/{server}/follow', [FollowerController::class, 'follow'])->n
 Route::get('/servers/{server}/unfollow', [FollowerController::class, 'unfollow'])->name('servers.unfollow');
 Route::get('/servers/{server}/page', [ServerController::class, 'page'])->name('servers.page');
 Route::get('/servers/{server}/page/{post}/detail', [ServerController::class, 'postDetail'])->name('servers.post_detail');
-Route::get('/servers/{server}/page/{post}/up-votes', [ServerController::class, 'postUpVotes'])->name('servers.post_up_votes');
-Route::get('/servers/{server}/page/{post}/down-votes', [ServerController::class, 'postDownVotes'])->name('servers.post_down_votes');
 Route::resource('/servers', ServerController::class)->only(['index', 'show'])->middleware('auth');
 Route::resource('/comment', CommentController::class)->only(['store', 'destroy', 'update'])->middleware('auth');
 Route::resource('/vote', VoteController::class)->only(['store'])->middleware('auth');
@@ -42,6 +40,9 @@ Route::name("studio.")->prefix("studio")->group(function () {
 
 // studio server post routes
 Route::name("studio.servers.")->prefix("studio/servers")->group(function () {
+    Route::get('/{server}/posts/{post}/votes', [StudioPostController::class, 'votes'])->name('posts.votes');
+    Route::get('/{server}/posts/{post}/comments', [StudioPostController::class, 'comments'])->name('posts.comments');
+    Route::get('/{server}/posts/{post}/comments/{comment}/reply', [StudioPostController::class, 'commentReply'])->name('posts.comment_reply');
     Route::resource('/{server}/posts', StudioPostController::class);
 });
 

@@ -35,15 +35,26 @@
                         </td>
                         <td>{{ $post->caption }}</td>
                         <td>
-                            <a href="{{ route('studio.servers.posts.edit', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-primary btn-xs edit-button">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.posts.destroy', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.posts.show', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-info btn-xs mx-1">
-                                <i class="fa fa-info"></i>
-                            </a>
+                            <div class="btn-group">
+                                <a href="{{ route('studio.servers.posts.edit', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-primary btn-xs edit-button">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.posts.destroy', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.posts.show', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-info btn-xs mx-1">
+                                    <i class="fa fa-info"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.posts.votes', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-secondary btn-xs mx-1">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.posts.comments', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-secondary btn-xs mx-1">
+                                    <i class="fa-solid fa-comments"></i>
+                                </a>
+                                <a href="#" class="btn btn-secondary btn-xs mx-1">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
@@ -57,7 +68,7 @@
 <script>
 $(document).ready( function () {
     $('#table').DataTable({
-        responsive: true
+        responsive: true,
     });
 } );
 </script>

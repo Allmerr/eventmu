@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Studio;
 
 use App\Models\Post;
 use App\Models\Server;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -127,4 +128,31 @@ class PostController extends Controller
 
         return redirect()->route('studio.servers.posts.index', $server->id)->with('success', 'Post deleted successfully.');
     }
+
+    public function votes(Request $request, Server $server, Post $post){
+        return view('studio.servers.posts.votes', [
+            'server' => $server,
+            'post' => $post,
+            'votes' => $post->votes,
+        ]);
+    }
+
+    public function comments(Request $request, Server $server, Post $post){
+        return view('studio.servers.posts.comments', [
+            'server' => $server,
+            'post' => $post,
+            'comments' => $post->comments,
+        ]);
+    }
+
+    public function commentReply(Request $request, Server $server, Post $post, Comment $comment){
+        return view('studio.servers.posts.comment_reply', [
+            'server' => $server,
+            'post' => $post,
+            'comment' => $comment,
+            'replies' => $comment->replies,
+        ]);
+    }
+
+
 }

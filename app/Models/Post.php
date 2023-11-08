@@ -38,4 +38,9 @@ class Post extends Model
 
         return $upVotes - $downVotes;
     }
+
+    public function countComments()
+    {
+        return $this->comments()->where('is_deleted', '0')->count();
+    }
 }

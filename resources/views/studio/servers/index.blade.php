@@ -33,6 +33,9 @@
                             <a href="{{ route('studio.servers.posts.index', $server->code) }}" class="btn btn-success btn-xs mx-1">
                                 <i class="fas fa-bullhorn"></i>
                             </a>
+                            <a href="{{ route('studio.servers.follower', $server->code) }}" class="btn btn-secondary btn-xs mx-1">
+                                <i class="fa-solid fa-users"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
