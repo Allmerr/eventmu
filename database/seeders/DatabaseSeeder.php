@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Server::factory()->count(4)->create();
+        User::factory()->count(3)->create();
         // Follower::factory()->count(5)->create();
     }
 }

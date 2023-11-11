@@ -17,6 +17,7 @@ class Server extends Model
         'code',
         'user_id',
         'is_deleted',
+        'nickname',
     ];
 
     public function user(){

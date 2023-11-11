@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('code', 5)->unique();
+            $table->string('nickname', 14)->unique()->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Services\NicknameService;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Server>
@@ -20,10 +21,15 @@ class ServerFactory extends Factory
     {
         $userId = User::pluck('id')->all();
 
+        $name = $this->faker->sentence(2);
+        $nicknameService = new NicknameService();
+        $nickname = $nicknameService->generateUniqueNickname($name);
+
         return [
-            'name' => $this->faker->sentence(2),
+            'name' => $name,
             'description' => $this->faker->text,
             'user_id' => $this->faker->randomElement($userId),
+            'nickname' => $nickname,
         ];
     }
 }

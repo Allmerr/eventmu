@@ -11,20 +11,21 @@
 | | Mini server | Mini server contain lms, shop, etc | | Low |
 | | Report Server | Moderators can banned or suspend | |  |
 | | Assistant |  | |  |
-| | Analytics |  | Analytics of the servers by the week or the month |  |
+| | Analytics | Analytics of the servers by the week or the month |  |  |
 | | Setting Assistant |  | |  |
 | | Setting feature | Owner setting some rules and configuration | | |
+| | Nickname | start form _@name_ that can be accessed like /_@name_ | | |
 | Forum | Create topic | | | |
 | | Discuse | | | |
 | | Close-Open | Topic can be clossed and Open by creator | | |
-| | Analytics |  | Analytics of the servers by the week or the month |  |
-| Post | like and comment | | |  |
-| | Analytics |  | Analytics of the servers by the week or the month |  |
+| Post | like and comment | | ✅ |  |
+| | Analytics | Analytics of the servers by the week or the month |  |  |
 | | Setting post | can repost, etc | | |
 | Moderator | Accept report | Banned or suspend server | | |
 |  | See and Do All Things | Post, Forum, Comments, Follower, Like, etc. | | |
 | | Make post | Post is not for server (comunity guidelines) | | |
 | User | Message | | | |
+| | Nickname | start form _@name_ that can be accessed like /_@name_ | | |
 | System | Log activity | | | |
 | | Have feed | Tell the most follow server of the week, server of the week and post of the week | | Low |
 
@@ -34,8 +35,8 @@
 | Make test | Feature Test that cover all aspect of feature  |  | High |  |
 | Add Code Field to Post |  |  |  | |
 | Make follower factory |  |  |  | [#1](https://github.com/Allmerr/eventmu/issues/1) |
-| Remaster or Remake Primary Design |  |  | High |  |
-| Remaster or Remake Admin Design |  |  | High |  |
+| Remaster or Remake Front-Page Design |  |  | High |  |
+| Remaster or Remake Studio Design |  |  | High |  |
 | Feature Search | Feature Search for all tables (algolia)  |  | Low |  |
 | Create reausable component | Like Card Style  |  |  |  |
 | Documentation | Like what library used, and why used?  |  | High |  |
