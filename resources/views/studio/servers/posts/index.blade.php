@@ -30,25 +30,25 @@
                             @if ($post->image)
                                 <img src="{{ asset('storage/' . $post->image) }}" alt="{{ Str::limit($post->caption, 20) }}">
                             @else
-                                <img src="https://source.unsplash.com/random/600x1000?nature" alt="{{ Str::limit($post->caption, 20) }}">
+                                <img src="https://source.unsplash.com/random/1000x1000" alt="{{ Str::limit($post->caption, 20) }}">
                             @endif
                         </td>
                         <td>{{ $post->caption }}</td>
                         <td>
                             <div class="btn-group">
-                                <a href="{{ route('studio.servers.posts.edit', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-primary btn-xs edit-button">
+                                <a href="{{ route('studio.servers.posts.edit', ['server' => $server->code, 'post' => $post->code]) }}" class="btn btn-primary btn-xs edit-button">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="{{ route('studio.servers.posts.destroy', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
+                                <a href="{{ route('studio.servers.posts.destroy', ['server' => $server->code, 'post' => $post->code]) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
                                     <i class="fa fa-trash"></i>
                                 </a>
-                                <a href="{{ route('studio.servers.posts.show', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-info btn-xs mx-1">
+                                <a href="{{ route('studio.servers.posts.show', ['server' => $server->code, 'post' => $post->code]) }}" class="btn btn-info btn-xs mx-1">
                                     <i class="fa fa-info"></i>
                                 </a>
-                                <a href="{{ route('studio.servers.posts.votes', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-secondary btn-xs mx-1">
+                                <a href="{{ route('studio.servers.posts.votes', ['server' => $server->code, 'post' => $post->code]) }}" class="btn btn-secondary btn-xs mx-1">
                                     <i class="fa-solid fa-thumbs-up"></i>
                                 </a>
-                                <a href="{{ route('studio.servers.posts.comments', ['server' => $server->code, 'post' => $post->id]) }}" class="btn btn-secondary btn-xs mx-1">
+                                <a href="{{ route('studio.servers.posts.comments', ['server' => $server->code, 'post' => $post->code]) }}" class="btn btn-secondary btn-xs mx-1">
                                     <i class="fa-solid fa-comments"></i>
                                 </a>
                                 <a href="#" class="btn btn-secondary btn-xs mx-1">

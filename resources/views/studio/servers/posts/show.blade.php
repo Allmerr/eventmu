@@ -17,7 +17,7 @@
         @if($post->image)
         <img src="{{ asset('storage/' . $post->image) }}" alt="{{ Str::limit($post->caption, 20) }}">
         @else
-        <img src="https://source.unsplash.com/random/600x1000?nature" alt="{{ Str::limit($post->caption, 20) }}">
+        <img src="https://source.unsplash.com/random/1000x1000" alt="{{ Str::limit($post->caption, 20) }}">
         @endif
         <br>
         {!! $post->caption !!}

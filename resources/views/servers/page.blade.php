@@ -21,7 +21,7 @@
             @if($post->image)
             <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ Str::limit($post->caption, 20) }}">
             @else
-            <img src="https://source.unsplash.com/random/600x1000?nature" class="card-img-top" alt="{{ Str::limit($post->caption, 20) }}">
+            <img src="https://source.unsplash.com/random/1000x1000" class="card-img-top" alt="{{ Str::limit($post->caption, 20) }}">
             @endif
             <div class="card-body">
                 <p class="card-text">{{ $post->caption }}</p>
@@ -42,7 +42,7 @@
                         <button type="submit" class="btn text-secondary text-decoration-none"   ><i class="fa-solid fa-chevron-down"></i></button>
                     </form>
                 </div>
-                <a href="{{ route('servers.post_detail', ['server' => $server->code, 'post' => $post->id]) }}" class="d-inline-block rounded p-1 bg-body-tertiary border text-decoration-none">Detail</a>
+                <a href="{{ route('servers.post_detail', ['server' => $server->code, 'post' => $post->code]) }}" class="d-inline-block rounded p-1 bg-body-tertiary border text-decoration-none">Detail</a>
             </div>
         </div>
     @endforeach

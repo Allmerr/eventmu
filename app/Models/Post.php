@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -41,6 +42,33 @@ class Post extends Model
 
     public function countComments()
     {
-        return $this->comments()->where('is_deleted', '0')->count();
+        return $this->comments()->count();
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'code';
+    }
+
+    // Register a creating event for the Server model
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($post) {
+            $post->code = $post->generateUniqueCode();
+        });
+    }
+
+    // Generate a unique code for the server
+    private function generateUniqueCode()
+    {
+        $code = Str::random(10);
+
+        while (Post::where('code', $code)->exists()) {
+            $code = Str::random(10);
+        }
+
+        return $code;
     }
 }

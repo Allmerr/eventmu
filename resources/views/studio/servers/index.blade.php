@@ -21,21 +21,23 @@
                         <td>{{ $server->code }}</td>
                         <td>{{ Str::limit($server->description, 50, '...') }}</td>
                         <td>
-                            <a href="{{ route('studio.servers.edit', $server->code) }}" class="btn btn-primary btn-xs edit-button">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.destroy', $server->code) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
-                                <i class="fa fa-trash"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.show', $server->code) }}" class="btn btn-info btn-xs mx-1">
-                                <i class="fa fa-info"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.posts.index', $server->code) }}" class="btn btn-success btn-xs mx-1">
-                                <i class="fas fa-bullhorn"></i>
-                            </a>
-                            <a href="{{ route('studio.servers.follower', $server->code) }}" class="btn btn-secondary btn-xs mx-1">
-                                <i class="fa-solid fa-users"></i>
-                            </a>
+                            <div class="btn-group">
+                                <a href="{{ route('studio.servers.edit', $server->code) }}" class="btn btn-primary btn-xs edit-button">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.destroy', $server->code) }}" class="btn btn-danger btn-xs mx-1" onclick="notificationBeforeDelete(event, this, <?php echo $key+1; ?>)">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.show', $server->code) }}" class="btn btn-info btn-xs mx-1">
+                                    <i class="fa fa-info"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.posts.index', $server->code) }}" class="btn btn-success btn-xs mx-1">
+                                    <i class="fas fa-bullhorn"></i>
+                                </a>
+                                <a href="{{ route('studio.servers.follower', $server->code) }}" class="btn btn-secondary btn-xs mx-1">
+                                    <i class="fa-solid fa-users"></i>
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

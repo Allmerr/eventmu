@@ -13,12 +13,6 @@
                 Servers
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('studio/posts*') ? 'active' : '' }}" href="{{ route('studio.servers.index') }}">
-                <span data-feather="file-text" class="align-text-bottom"></span>
-                Posts
-                </a>
-            </li>
         </ul>
     </div>
 </nav>

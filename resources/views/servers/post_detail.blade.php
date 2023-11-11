@@ -25,11 +25,11 @@
             @if($post->image)
             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ Str::limit($post->caption, 20) }}" class="mx-auto img-thumbnail m-2">
             @else
-            <img src="https://source.unsplash.com/random/600x1000?nature" alt="{{ Str::limit($post->caption, 20) }}" class="mx-auto img-thumbnail m-2">
+            <img src="https://source.unsplash.com/random/1000x1000" alt="{{ Str::limit($post->caption, 20) }}" class="mx-auto img-thumbnail m-2">
             @endif
             <div class="body mt-2">
                 <p class="text">{{ $post->caption }}</p>
-                <div class="d-inline-block rounded p-1 bg-body-tertiary border">
+                <div class="d-inline rounded p-1 bg-body-tertiary border">
                     <form action="{{ route('vote.store') }}" method="post" class="d-inline">
                         @csrf
                         <input type="hidden" name="type" value="post">
@@ -67,7 +67,7 @@
                     <div class="comment p-1 rounded">
                         <div class="d-flex justify-content-between">
                             <h6 class="comment__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $comment->user->name }}</b></a> - {{ $comment->created_at->diffForHumans() }}</h6>
-                            <div class="d-inline-block rounded p-1 bg-body-tertiary border">
+                            <div class="d-inline rounded p-1 bg-body-tertiary border">
                                 <form action="{{ route('vote.store') }}" method="post" class="d-inline">
                                     @csrf
                                     <input type="hidden" name="type" value="comment">
@@ -98,7 +98,7 @@
                     <div class="comment-reply p-1 rounded">
                         <div class="d-flex justify-content-between">
                             <h6 class="comment-reply__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $reply->user->name }}</b></a> - {{ $reply->created_at->diffForHumans() }}</h6>
-                            <div class="d-inline-block rounded p-1 bg-body-tertiary border">
+                            <div class="d-inline rounded p-1 bg-body-tertiary border overflow-auto">
                                 <form action="{{ route('vote.store') }}" method="post" class="d-inline">
                                     @csrf
                                     <input type="hidden" name="type" value="comment">
@@ -134,7 +134,11 @@
             <div class="latest-posts">
                 @foreach ($posts as $post)
                 <div class="latest-post d-flex align-items-center rounded p-1 justify-content-around border mb-2">
-                    <img src="{{ asset('storage/' .  $post->image ) }}" alt="{{ Str::limit($post->caption, 20) }}" class="latest-post__image">
+                    @if($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ Str::limit($post->caption, 20) }}" class="latest-post__image">
+                    @else
+                    <img src="https://source.unsplash.com/random/1000x1000" alt="{{ Str::limit($post->caption, 20) }}" class="latest-post__image">
+                    @endif
                     <h6 class=""><a href="{{ route('servers.post_detail', ['server' => $server->code, 'post' => $post->id]) }}" class="text-decoration-none">{{ Str::limit($post->caption, 35) }}</a></h6>
                 </div>
                 @endforeach

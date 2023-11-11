@@ -11,12 +11,15 @@
 | | Mini server | Mini server contain lms, shop, etc | | Low |
 | | Report Server | Moderators can banned or suspend | |  |
 | | Assistant |  | |  |
+| | Analytics |  | Analytics of the servers by the week or the month |  |
 | | Setting Assistant |  | |  |
 | | Setting feature | Owner setting some rules and configuration | | |
 | Forum | Create topic | | | |
 | | Discuse | | | |
 | | Close-Open | Topic can be clossed and Open by creator | | |
+| | Analytics |  | Analytics of the servers by the week or the month |  |
 | Post | like and comment | | |  |
+| | Analytics |  | Analytics of the servers by the week or the month |  |
 | | Setting post | can repost, etc | | |
 | Moderator | Accept report | Banned or suspend server | | |
 |  | See and Do All Things | Post, Forum, Comments, Follower, Like, etc. | | |

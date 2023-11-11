@@ -12,6 +12,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Content</th>
+                    <th>Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,7 @@
                     <tr>
                         <td>{{ $reply->user->name }}</td>
                         <td>{{ $reply->content }}</td>
+                        <td>{{ $reply->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
             </tbody>

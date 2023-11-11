@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->text('caption');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->unsignedBigInteger('server_id');
             $table->foreign('server_id')->references('id')->on('servers');
             $table->enum('is_deleted', ['0', '1'])->default('0');
+            $table->string('code', 10)->unique();
             $table->timestamps();
         });
     }

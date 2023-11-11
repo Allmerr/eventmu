@@ -13,7 +13,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('studio.servers.posts.update', ['server' => $server->code, 'post' => $post->id]) }}" enctype="multipart/form-data" method="post">
+        <form action="{{ route('studio.servers.posts.update', ['server' => $server->code, 'post' => $post->code]) }}" enctype="multipart/form-data" method="post">
             @method('PUT')
             @csrf
             <div class="mb-3">
