@@ -23,6 +23,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 // server routes
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('/{nickname}', [HomeController::class, 'profile'])->name('profile');
+
     Route::get('/servers/{server}/follow', [FollowerController::class, 'follow'])->name('servers.follow');
     Route::get('/servers/{server}/unfollow', [FollowerController::class, 'unfollow'])->name('servers.unfollow');
     Route::get('/servers/{server}/page', [ServerController::class, 'page'])->name('servers.page');

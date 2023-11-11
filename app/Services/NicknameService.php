@@ -23,8 +23,27 @@ class NicknameService{
 
     public function isUnique(string $nickname): bool
     {
-        $user = User::where('nickname', $nickname)->first();
-        $server = Server::where('nickname', $nickname)->first();
+        $user = User::where('nickname', $nickname)->where('is_deleted', '0')->first();
+        $server = Server::where('nickname', $nickname)->where('is_deleted', '0')->first();
         return is_null($user) && is_null($server);
+    }
+
+    public function findNickname(string $nickname)
+    {
+        $user = User::where('nickname', $nickname)->where('is_deleted', '0')->first();
+        $server = Server::where('nickname', $nickname)->where('is_deleted', '0')->first();
+        if (!is_null($user)) {
+            return [
+                'type' => 'user',
+                'user' => $user,
+            ];
+        } else if (!is_null($server)) {
+            return [
+                'type' => 'server',
+                'server' => $server,
+            ];
+        } else {
+            return null;
+        }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Server;
+use App\Services\NicknameService;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,27 @@ class HomeController extends Controller
     {
         return view('home', [
             "servers" => Server::where('is_deleted', '0')->get(),
+        ]);
+    }
+
+    public function profile(Request $request, $nickname)
+    {
+        $nicknameService = new NicknameService();
+        $dataNickname = $nicknameService->findNickname($nickname);
+        if (is_null($dataNickname)) {
+            return abort(404);
+        }
+
+        if($dataNickname['type'] == 'user'){
+            $user = $dataNickname['user'];
+        }else{
+            $server = $dataNickname['server'];
+        }
+
+        return view('profile', [
+            "type" => $dataNickname['type'],
+            "user" => $user ?? null,
+            "server" => $server ?? null,
         ]);
     }
 }
