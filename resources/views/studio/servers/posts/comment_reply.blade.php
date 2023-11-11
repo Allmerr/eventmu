@@ -10,7 +10,7 @@
             <caption>replies</caption>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nickname</th>
                     <th>Content</th>
                     <th>Time</th>
                 </tr>
@@ -18,7 +18,7 @@
             <tbody>
                 @foreach ($replies as $key => $reply)
                     <tr>
-                        <td>{{ $reply->user->name }}</td>
+                        <td><a href="{{ route('profile', $reply->user->nickname) }}">{{ $reply->user->nickname }}</a></td>
                         <td>{{ $reply->content }}</td>
                         <td>{{ $reply->created_at->diffForHumans() }}</td>
                     </tr>

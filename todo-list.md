@@ -25,8 +25,10 @@
 |  | See and Do All Things | Post, Forum, Comments, Follower, Like, etc. | | |
 | | Make post | Post is not for server (comunity guidelines) | | |
 | User | Message | | | |
-| | Nickname | start form _@name_ that can be accessed like /_@name_ | | |
+| | Nickname | start form _@name_ that can be accessed like /_@name_ | (In Progress) | |
+| | Setting | Change photo profile, password, verification email | | |
 | System | Log activity | | | |
+| | Tags for server, post and forum | | | |
 | | Have feed | Tell the most follow server of the week, server of the week and post of the week | | Low |
 
 ## Code
@@ -42,4 +44,6 @@
 | Documentation | Like what library used, and why used?  |  | High |  |
 | Code coverage | |  | Low |  |
 | User check | Like check validation massage consistent, is_deleted check |  | |  |
-| User have username | for make easy SEO | | High | |
+| User have username | for make easy SEO | ✅ | High | |
+| Make Page for all nickname | | | | |
+| Remember Me feature | | | | |

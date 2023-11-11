@@ -66,7 +66,7 @@
                     @foreach ($post->comments as $comment)
                     <div class="comment p-1 rounded">
                         <div class="d-flex justify-content-between">
-                            <h6 class="comment__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $comment->user->name }}</b></a> - {{ $comment->created_at->diffForHumans() }}</h6>
+                            <h6 class="comment__username"><a href="{{ route('profile', $server->user->nickname) }}" class="text-decoration-none text-muted"><b>{{ $comment->user->nickname }}</b></a> - {{ $comment->created_at->diffForHumans() }}</h6>
                             <div class="d-inline rounded p-1 bg-body-tertiary border">
                                 <form action="{{ route('vote.store') }}" method="post" class="d-inline">
                                     @csrf
@@ -97,7 +97,7 @@
                     @foreach ($comment->replies as $reply)
                     <div class="comment-reply p-1 rounded">
                         <div class="d-flex justify-content-between">
-                            <h6 class="comment-reply__username"><a href="#" class="text-decoration-none text-muted"><b>{{ $reply->user->name }}</b></a> - {{ $reply->created_at->diffForHumans() }}</h6>
+                            <h6 class="comment-reply__username"><a href="{{ route('profile', $server->user->nickname) }}" class="text-decoration-none text-muted"><b>{{ $reply->user->nickname }}</b></a> - {{ $reply->created_at->diffForHumans() }}</h6>
                             <div class="d-inline rounded p-1 bg-body-tertiary border overflow-auto">
                                 <form action="{{ route('vote.store') }}" method="post" class="d-inline">
                                     @csrf

@@ -10,14 +10,14 @@
             <caption>Votes</caption>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nickname</th>
                     <th>Value</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($votes as $key => $vote)
                     <tr>
-                        <td>{{ $vote->user->name }}</td>
+                        <td><a href="{{ route('profile', $vote->user->nickname) }}">{{ $vote->user->nickname }}</a></td>
                         <td>{{ $vote->value }}</td>
                     </tr>
                 @endforeach

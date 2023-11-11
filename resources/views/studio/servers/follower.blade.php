@@ -7,13 +7,13 @@
             <caption>Followers {{ $server->name }}</caption>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nickname</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($followers as $key => $follower)
                     <tr>
-                        <td>{{ $follower->user->name }}</td>
+                        <td><a href="{{ route('profile', $follower->user->nickname) }}">{{ $follower->user->nickname }}</a></td>
                         </td>
                     </tr>
                 @endforeach

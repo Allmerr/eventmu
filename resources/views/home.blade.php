@@ -18,7 +18,7 @@
                             <a href="{{ route('servers.show', $server->code) }}" class="text-decoration-none">
                                 <div class="card-title">{{ $server->name }}</div>
                             </a>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">{{ $server->user->name }}</h6>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"><a href="{{ route('profile', $server->user->nickname) }}" class="text-body-secondary text-decoration-none">{{ $server->user->nickname }}</a></h6>
                             <p class="card-text">{{ Str::limit($server->description, 100) }}</p>
                         </div>
                     </div>

@@ -10,7 +10,7 @@
             <caption>Comments</caption>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Nickname</th>
                     <th>Content</th>
                     <th>Time</th>
                     <th>Action</th>
@@ -19,7 +19,7 @@
             <tbody>
                 @foreach ($comments as $key => $comment)
                     <tr>
-                        <td>{{ $comment->user->name }}</td>
+                        <td>{{ $comment->user->nicknme }}</td>
                         <td>{{ $comment->content }}</td>
                         <td>{{ $comment->created_at->diffForHumans() }}</td>
                         <td>

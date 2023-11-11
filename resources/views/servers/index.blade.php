@@ -14,7 +14,7 @@
                         <h5 class="card-title">
                             <a href="{{ route('servers.show', $server->code) }}" class="text-decoration-none">{{ $server->name }}</a>
                         </h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ $server->user->name }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><a href="{{ route('profile', $server->user->nickname) }}" class="text-body-secondary text-decoration-none">{{ $server->user->nickname }}</a></h6>
                         <p class="card-text">{{ Str::limit($server->description, 50) }}</p>
 
                         <small class="d-block text-muted "><b>{{ $server->countFollowers() }}  Followers</b></small>
