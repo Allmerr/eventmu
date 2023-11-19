@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\Studio\ServerController as StudioServerController;
 use App\Http\Controllers\Studio\PostController as StudioPostController;
+use App\Http\Controllers\SettingController as StudioSettingController;
 use App\Http\Controllers\Studio\StudioController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HomeController;
@@ -38,6 +39,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::name("studio.")->prefix("studio")->group(function () {
         Route::get('/servers/{server}/follower', [StudioServerController::class, 'follower'])->name('servers.follower');
         Route::resource('/servers', StudioServerController::class);
+        Route::get('/setting', [StudioSettingController::class, 'index'])->name('setting.index');
+        Route::post('/setting/update-profile-picture', [StudioSettingController::class, 'updateProfilePicture'])->name('setting.update_profile_picture');
+        Route::post('/setting/update-profile', [StudioSettingController::class, 'updateProfile'])->name('setting.update_profile');
+        Route::get('/setting/is-nickname-unique/{nickname}', [StudioSettingController::class, 'isnicknameUnique'])->name('setting.is_nickname_unique');
     });
 
     // studio server post routes

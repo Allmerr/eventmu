@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'nickname',
+        'user_profile_id',
     ];
 
     /**
@@ -46,6 +47,10 @@ class User extends Authenticatable
 
     public function servers(){
         return $this->hasMany(Server::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(UserProfile::class);
     }
 
     public function IsMyOwnServer($serverId){

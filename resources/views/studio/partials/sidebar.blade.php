@@ -14,5 +14,17 @@
                 </a>
             </li>
         </ul>
+        <hr class="my-3">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="#settingMenu" data-bs-toggle="collapse" class="nav-link">
+                    <span data-feather="settings" class="align-text-bottom"></span> <span class="d-none d-sm-inline">Setting</span> </a>
+                <ul class="collapse nav flex-column" id="settingMenu" data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{{ route('studio.setting.index') }}" class="nav-link"> <span class="d-none d-sm-inline">Profile</span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>

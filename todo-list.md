@@ -26,7 +26,7 @@
 | | Make post | Post is not for server (comunity guidelines) | | |
 | User | Message | | | |
 | | Nickname | start form _@name_ that can be accessed like /_@name_ | (In Progress) | |
-| | Setting | Change photo profile, password, verification email | | |
+| | Setting | Change photo profile, password, change email, verification email, etc | | |
 | System | Log activity | | | |
 | | Tags for server, post and forum | | | |
 | | Have feed | Tell the most follow server of the week, server of the week and post of the week | | Low |
@@ -47,3 +47,5 @@
 | User have username | for make easy SEO | ✅ | High | |
 | Make Page for all nickname | | | | |
 | Remember Me feature | | | | |
+| Header Context in studio page | Make more easy to navigate between page | | High | |
+| Change soft delete | soft delete implements not correct | | High | |
